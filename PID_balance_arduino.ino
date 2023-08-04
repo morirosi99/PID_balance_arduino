@@ -29,12 +29,12 @@ float pid_p=0;
 float pid_i=0;
 float pid_d=0;
 /////////////////PID CONSTANTS/////////////////
-double kp=0.1; //0.65
-double ki=0;
-double kd=0.015;
+double kp=0.2;//0.1; 
+double ki=0;//0;
+double kd=0;//0.015;
 ///////////////////////////////////////////////
 
-double throttle=1150; //initial value of throttle to the motors
+double throttle=1225; //initial value of throttle to the motors
 float desired_angle = 0; //This is the angle in which we whant the
                          //balance to stay steady
 
@@ -237,8 +237,8 @@ if(PID > 50)
 
 //Serial.println(PID);
 /*Finnaly we calculate the PWM width. We sum the desired throttle and the PID value*/
-pwmBack = throttle + PID;
-pwmFront = throttle - PID; // + - SWAPPED FOR OUR CASE
+pwmBack = throttle - PID;
+pwmFront = throttle + PID; // + - SWAPPED FOR OUR CASE
 
 
 /*Once again we map the PWM values to be sure that we won't pass the min
@@ -246,7 +246,7 @@ and max values. Yes, we've already maped the PID values. But for example, for
 throttle value of 1300, if we sum the max PID value we would have 2300us and
 that will mess up the ESC.*/
 //Back
-if(pwmBack < 1100)
+/*if(pwmBack < 1100)
 {
   pwmBack= 1100;
 }
@@ -262,7 +262,7 @@ if(pwmFront < 1100)
 if(pwmFront > 1300)
 {
   pwmFront=1300;
-}
+}*/
 
 /*Finnaly using the servo function we create the PWM pulses with the calculated
 width for each pulse*/
