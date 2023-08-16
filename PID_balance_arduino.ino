@@ -29,9 +29,9 @@ float pid_p=0;
 float pid_i=0;
 float pid_d=0;
 /////////////////PID CONSTANTS/////////////////
-double kp=0.2;//0.1; 
+double kp=1;//0.1; 
 double ki=0;//0;
-double kd=0;//0.015;
+double kd=0.025;//0.015;
 ///////////////////////////////////////////////
 
 double throttle=1225; //initial value of throttle to the motors
